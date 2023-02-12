@@ -37,10 +37,10 @@ function playRound() {
         }
         if (playerInput === "paper") {
             if (computer === "rock") { console.log("You win"); playerScore++; }
-            if (computer === "scissors") { console.log("You lose"); playerScore++; }
+            if (computer === "scissors") { console.log("You lose"); computerScore++; }
         }
         if (playerInput === "scissors") {
-            if (computer === "rock") { console.log("You lose"); playerScore++; }
+            if (computer === "rock") { console.log("You lose"); computerScore++; }
             if (computer === "paper") { console.log("You win"); playerScore++; }
         }
     } else { alert("Please enter valid option"), game() };
