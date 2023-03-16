@@ -14,7 +14,7 @@ function playRound(playerInput) {
     console.log("Player: " + playerInput)
     console.log("Computer: " + computer)
     let outcome = '';
-    if (playerInput === computer) { result.textContent = 'I\'ts a draw' }
+    if (playerInput === computer) { result.textContent = 'It\'s a draw' }
     if (playerInput === "rock") {
         if (computer === "paper") { result.textContent = 'You lost the round'; computerScore++; }
         if (computer === "scissors") { result.textContent = 'You won the round'; playerScore++; }
