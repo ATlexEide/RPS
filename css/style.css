@@ -23,14 +23,14 @@
 }
 
 #paper {
-    background-image: url('../images/paper.png');
+    background-image: url('./images/paper.png');
     background-position: center;
     background-size: 75%;
     background-repeat: no-repeat;
 }
 
 #scissors {
-    background-image: url('../images/scissors.png');
+    background-image: url('/images/scissors.png');
     background-position: center;
     background-size: 30%;
     background-repeat: no-repeat;
