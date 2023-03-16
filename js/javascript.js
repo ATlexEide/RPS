@@ -1,61 +1,61 @@
+
 let playerScore = 0;
 let computerScore = 0;
-
 function getComputerChoice() {
     let number = Math.floor(Math.random() * 3) + 1;
     if (number === 1) { return 'rock'; }
     else if (number === 2) { return 'paper'; }
     else if (number === 3) { return 'scissors'; }
-    // return "paper";
 };
 
-
-// Checks if the input is a valid option?
-function isValidInput(input) {
-    if (input === "rock" || input === "paper" || input === "scissors") {
-        return true;
-    } else {
-        return false;
-    }
-}
-function getInput() {
-    input = prompt("Rock, Paper or Scissors?")
-    input = input.toLowerCase()
-    console.log("getInput: " + input)
-    return input;
-}
-function playRound() {
-    const playerInput = getInput();
+// Plays a round with the given input vs computers input
+function playRound(playerInput) {
     const computer = getComputerChoice();
-    if (isValidInput(playerInput)) {
-        console.log("Player: " + playerInput)
-        console.log("Computer: " + computer)
-        if (playerInput === computer) { console.log("Draw") }
-        if (playerInput === "rock") {
-            if (computer === "paper") { console.log("You lose"); computerScore++; }
-            if (computer === "scissors") { console.log("You win"); playerScore++; }
-        }
-        if (playerInput === "paper") {
-            if (computer === "rock") { console.log("You win"); playerScore++; }
-            if (computer === "scissors") { console.log("You lose"); computerScore++; }
-        }
-        if (playerInput === "scissors") {
-            if (computer === "rock") { console.log("You lose"); computerScore++; }
-            if (computer === "paper") { console.log("You win"); playerScore++; }
-        }
-    } else { alert("Please enter valid option"), game() };
-    console.log(`Score: Player[${playerScore}] : Computer [${computerScore}]`)
-    replay();
-}
-function replay() {
-    if (playerScore < 5) {
-        if (computerScore < 5) { game() }
+    console.log("Player: " + playerInput)
+    console.log("Computer: " + computer)
+    let outcome = '';
+    if (playerInput === computer) { result.textContent = 'I\'ts a draw' }
+    if (playerInput === "rock") {
+        if (computer === "paper") { result.textContent = 'You lost the round'; computerScore++; }
+        if (computer === "scissors") { result.textContent = 'You won the round'; playerScore++; }
     }
+    if (playerInput === "paper") {
+        if (computer === "rock") { result.textContent = 'You won the round'; playerScore++; }
+        if (computer === "scissors") { result.textContent = 'You lost the round'; computerScore++; }
+    }
+    if (playerInput === "scissors") {
+        if (computer === "rock") { result.textContent = 'You lost the round'; computerScore++; }
+        if (computer === "paper") { result.textContent = 'You won the round'; playerScore++; }
+    }
+    game.textContent = `Player : ${playerInput} | Computer: ${computer}`
+    score.textContent = `Player ${playerScore} - ${computerScore} Computer`
+    if (playerScore === 5) {
+        winner.textContent = 'You Won The Game!';
+        resetScore();
+
+    }
+    else if (computerScore === 5) {
+        winner.textContent = 'You Lost The Game!';
+        resetScore();
+
+    }
+}
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
 }
 // Play a game by calling the playRound function
-function game() {
-    playRound();
-}
+// function game() {
+//     playRound();
+// }
+const rock = document.querySelector('#rock');
+rock.onclick = () => playRound('rock');
+const paper = document.querySelector('#paper');
+paper.onclick = () => playRound('paper');
+const scissors = document.querySelector('#scissors');
+scissors.onclick = () => playRound('scissors');
 
-// Calls the game function to play the game
-game();
+const score = document.querySelector('#score');
+const winner = document.querySelector('#winner')
+const game = document.querySelector('#game')
+const result = document.querySelector('#roundResult')
