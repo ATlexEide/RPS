@@ -1,5 +1,5 @@
 * {
-    background-color: #202124;
+    background-color: rgb(42, 42, 42);
     font-family: Courier, monospace;
     color: antiquewhite;
 }
@@ -69,4 +69,14 @@ h2 {
     align-items: center;
     font-size: 40px;
     color: white;
+}
+
+#score-display {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+#round-result-display {
+    height: 5rem;
+    text-align: center;
 }

@@ -27,12 +27,12 @@ function playRound(playerInput) {
         if (computer === "rock") { result.textContent = 'You lost the round'; computerScore++; }
         if (computer === "paper") { result.textContent = 'You won the round'; playerScore++; }
     }
-    game.textContent = `Player : ${playerInput} | Computer: ${computer}`
+    game.textContent = `Player [${playerInput} - ${computer}] Computer`
     score.textContent = `Player ${playerScore} - ${computerScore} Computer`
     if (playerScore === 5) {
+        winner.value = 'on'
         winner.textContent = 'You Won The Game!';
         resetScore();
-
     }
     else if (computerScore === 5) {
         winner.textContent = 'You Lost The Game!';
